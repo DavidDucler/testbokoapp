@@ -12,9 +12,7 @@ class AuthService extends GetxService implements AuthApi {
   final String clientId = 'angolar_test';
   final String realm = 'bitkap_dev';
   final String redirectUrl = 'net.bokotesh.app.//callback';
-//com.test.bokoteck.com.testbokotech:/oauth2redirect
-//com.test.bokoteck.com:/oauth2redirect
-//net.bokotesh.app://oauth2redirect
+
   final AuthorizationServiceConfiguration _serviceConfiguration =
       const AuthorizationServiceConfiguration(
  

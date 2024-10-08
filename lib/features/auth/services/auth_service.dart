@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:get/get.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -7,31 +8,31 @@ import 'package:testbokotech/constants/constants.dart';
 import 'package:testbokotech/features/auth/api/auth_api.dart';
 
 class AuthService extends GetxService implements AuthApi {
-
-   final FlutterAppAuth _appAuth = const FlutterAppAuth();
-  final String clientId = 'angolar_test'; 
+  final FlutterAppAuth _appAuth =  FlutterAppAuth();
+  final String clientId = 'angolar_test';
   final String realm = 'bitkap_dev';
-  final String issuer = 'https://sso.bitkap.africa/realms/bitkap_dev';
-  final String redirectUrl = 'com.test.bokoteck.com.testbokotech:/oauth2redirect';
+  final String redirectUrl = 'net.bokotesh.app.//callback';
 //com.test.bokoteck.com.testbokotech:/oauth2redirect
 //com.test.bokoteck.com:/oauth2redirect
- final AuthorizationServiceConfiguration _serviceConfiguration =
+//net.bokotesh.app://oauth2redirect
+  final AuthorizationServiceConfiguration _serviceConfiguration =
       const AuthorizationServiceConfiguration(
-    authorizationEndpoint: 'https://sso.bitkap.africa/realms/bitkap_dev/protocol/openid-connect/auth',
-    tokenEndpoint: 'https://sso.bitkap.africa/realms/bitkap_dev/protocol/openid-connect/token',
+ 
+        'https://sso.bitkap.africa/realms/bitkap_dev/protocol/openid-connect/auth',
+   
+        'https://sso.bitkap.africa/realms/bitkap_dev/protocol/openid-connect/token',
   );
-  final List<String> scopes = ['openid', 'profile', 'email'];
+  final List<String> scopes = ['openid', 'profile', 'email','api'];
   @override
-  Future<Map<String,dynamic>?> login() async{
-
-   try {
-       AuthorizationTokenResponse? result = await _appAuth.authorizeAndExchangeCode(
+  Future<Map<String, dynamic>?> login() async {
+    try {
+      AuthorizationTokenResponse? result =
+          await _appAuth.authorizeAndExchangeCode(
         AuthorizationTokenRequest(
           clientId,
           redirectUrl,
-         //issuer: issuer,
-          serviceConfiguration: _serviceConfiguration,
           scopes: scopes,
+          serviceConfiguration: _serviceConfiguration,
         ),
       );
       print(result);
@@ -41,7 +42,10 @@ class AuthService extends GetxService implements AuthApi {
 
       // Décoder les informations utilisateur
       return decodedToken;
-    } catch (e) {
+    } on PlatformException catch (e) {
+      print(e.code);
+      print(e.message);
+      print(e.details);
       print('Erreur de connexion : $e');
     }
     return null;
@@ -52,5 +56,4 @@ class AuthService extends GetxService implements AuthApi {
     // TODO: implement logout
     throw UnimplementedError();
   }
-
 }

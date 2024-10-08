@@ -39,7 +39,7 @@ dependencies:
   get: ^4.6.5
   openid_client: ^0.4.8
   url_launcher: ^5.2.7
-  flutter_appauth: ^6.0.7
+  flutter_appauth: ^1.1.0+2
   jwt_decoder: ^2.0.1
 
 dev_dependencies:

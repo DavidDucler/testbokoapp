@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testbokotech/features/auth/controllers/auth_controller.dart';
+import 'package:testbokotech/features/auth/pages/login_page.dart';
 import 'package:testbokotech/features/auth/services/auth_service.dart';
 import 'package:testbokotech/pages/landing_page.dart';
 import 'package:testbokotech/pages/splashscreen.dart';
@@ -46,6 +47,10 @@ class MyApp extends GetWidget<AuthController> {
         GetPage(
           name: '/home',
           page: () => const LandingPage(),
+        ),
+         GetPage(
+          name: '/login',
+          page: () => const LoginPage(),
         ),
       ],
     );

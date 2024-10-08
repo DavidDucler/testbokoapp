@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,15 +16,14 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         Container(
           padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-          
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
                 'assets/images/logo.png',
-                width: 150,
+                width: 100.h,
               ),
-              const Text.rich(
+              Text.rich(
                 TextSpan(
                   text: "Hello ",
                   children: [
@@ -31,19 +31,20 @@ class _ProfilePageState extends State<ProfilePage> {
                       text: "Username",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
                       ),
                     ),
                   ],
                 ),
                 style: TextStyle(
                   color: Color(0xFFfd3330),
+                  fontSize: 14.sp,
                 ),
               )
             ],
           ),
         ),
         Expanded(
-          
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
             child: Container(
@@ -61,7 +62,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text("Menu"),
+                      Text(
+                        "Menu",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
+                      ),
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(
@@ -83,18 +91,27 @@ class _ProfilePageState extends State<ProfilePage> {
                       tileColor: Colors.white,
                       leading: Image.asset(
                         'assets/images/user.png',
-                        width: 40,
+                        width: 40.h,
                       ),
-                       trailing: const Icon(Icons.arrow_forward_ios,color: Colors.grey,),
-                      title: const Text(
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                      ),
+                      title: Text(
                         "Username",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                       ),
-                      subtitle: const Text(
+                      subtitle: Text(
                         "Profile and Preferences",
                         style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
                   ),
@@ -103,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10.w),
                     decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -111,14 +128,19 @@ class _ProfilePageState extends State<ProfilePage> {
                       tileColor: Colors.white,
                       leading: Image.asset(
                         'assets/images/identity_verified.png',
-                        width: 40,
+                        width: 40.w,
                       ),
-                      
-                      trailing: const Icon(Icons.arrow_forward_ios,color: Colors.grey,),
-                      title: const Text(
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                      ),
+                      title: Text(
                         "Identity Verification",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                       ),
                       subtitle: const Text(
                         "Verified",
@@ -141,13 +163,19 @@ class _ProfilePageState extends State<ProfilePage> {
                       tileColor: Colors.white,
                       leading: Image.asset(
                         'assets/images/payment.png',
-                        width: 40,
+                        width: 40.w,
                       ),
-                       trailing: const Icon(Icons.arrow_forward_ios,color: Colors.grey,),
-                      title: const Text(
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                      ),
+                      title: Text(
                         "Payments Methods",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   ),
@@ -156,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
                     decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -164,13 +192,19 @@ class _ProfilePageState extends State<ProfilePage> {
                       tileColor: Colors.white,
                       leading: Image.asset(
                         'assets/images/account_security.png',
-                        width: 40,
+                        width: 40.w,
                       ),
-                       trailing: const Icon(Icons.arrow_forward_ios,color: Colors.grey,),
-                      title: const Text(
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                      ),
+                      title: Text(
                         "Account Security",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   ),
@@ -179,7 +213,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
                     decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -187,48 +221,54 @@ class _ProfilePageState extends State<ProfilePage> {
                       tileColor: Colors.white,
                       leading: Image.asset(
                         'assets/images/logout.png',
-                        width: 40,
+                        width: 40.w,
                       ),
-                       trailing: const Icon(Icons.arrow_forward_ios,color: Colors.grey,),
-                      title: const Text(
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                      ),
+                      title: Text(
                         "Logout",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 50.h,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           "Terms and Conditions",
                           maxLines: 1,
                           style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            color: Colors.blue,
-                          ),
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blue,
+                              fontSize: 12.sp),
                         ),
                         Text(
                           "Terms and Conditions",
                           maxLines: 1,
-                           style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                             color: Colors.blue,
-                          ),
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blue,
+                              fontSize: 12.sp),
                         ),
                         Text(
                           "V 1.0.0",
                           maxLines: 1,
-                           style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                             color: Colors.blue,
-                          ),
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              color: Colors.blue,
+                              fontSize: 12.sp),
                         )
                       ],
                     ),
